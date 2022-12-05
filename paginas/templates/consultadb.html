@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCP</title>
+        <!--  <link rel="stylesheet" href="{% static 'css/css_consultadb.css' %}"/> -->
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/jquery-3.6.1.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/datatables.js' %}"></script> 
+        
+
+       
+
+        
+
+
+    </head>
+   <body>
+ 
+ <div class="table-responsive"> 
+      <table class="table" id="tabela-listar">
+        <thead>
+            <tr>
+             <th class= "patri" scope="col">Patrimônio</th>
+             <th class= "serie" scope="col">Nº de Série</th>
+             <th class= "produto" scope="col">Produto</th>
+             <th class= "escola" scope="col">Escola</th>
+             <th class= "funci" scope="col">Funcionário</th>
+             <th class= "cpf" scope="col">CPF</th>
+             <th class= "rg" scope="col">RG</th>
+             <th class= "data" scope="col">Entrega</th>
+        </tr>
+      </thead>
+
+        
+      <tbody> 
+      {% for gmp in object_list %}
+      <tr>
+        <td> <p style="text-align:center">{{gmp.patri}}</td>  
+        <td> <p style="text-align:center">{{gmp.serie}}</td>  
+        <td> <p style="text-align:center">{{gmp.produto}}</td> 
+        <td> <p style="text-align:center">{{gmp.escola}}</td>     
+        <td> <p style="text-align:center">{{gmp.funci}}</td>   
+        <td> <p style="text-align:center">{{gmp.cpf}}</td>  
+        <td> <p style="text-align:center">{{gmp.rg}}</td>  
+        <td> <p style="text-align:center">{{gmp.data}}</td>
+      </tr>   
+        {% empty %}
+
+        {% endfor %}
+      </tbody>
+
+</div>
+<script>
+  $(document).ready(function(){
+
+$("#tabela-listar").DataTable({
+    responsive: true,
+    // "bSort": false,
+    "aaSorting": [],
+    "pageLength": 50,
+    "language": {
+        "decimal": "",
+        "emptyTable": "Sem dados disponíveis",
+        "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+        "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+        "infoFiltered": "(filtrado de _MAX_ registos no total)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ registos",
+        "loadingRecords": "A carregar dados...",
+        "processing": "A processar...",
+        "search": "Procurar:",
+        "zeroRecords": "Não foram encontrados resultados",
+        "paginate": {
+            "first": "Primeiro",
+            "last": "Último",
+            "next": "Seguinte",
+            "previous": "Anterior"
+        },
+        "aria": {
+            "sortAscending": ": ordem crescente",
+            "sortDescending": ": ordem decrescente"
+        }
+    }
+});
+
+});
+
+</script>
+</table>
+
+</body>
+</html>

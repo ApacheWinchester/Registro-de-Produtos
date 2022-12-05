@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCP</title>
+        <link rel="stylesheet" href="{% static 'css/css_login.css' %}"/>
+    </head>
+    <body>
+        <main id="content-principal">
+            <section class="content-1">
+                <div class="content-text">
+                    <h1>SCP</h1>
+                    <p>Software de Cadastro de Patrimônio</p>
+                </div>
+            </section>
+            <section class="content-2">
+                <form class="content-2-text" action="{% url 'login' %}" method= "POST">{% csrf_token %}
+
+                    <div  class="form-control" ><input type="value" name="username" required=""><label><span style="transition-delay:0ms">u</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">u</span><span style="transition-delay:150ms">a</span><span style="transition-delay:200ms">r</span><span style="transition-delay:250ms">i</span><span style="transition-delay:300ms">o</span>
+                    </label>
+                    </div>
+                    </p>
+                    
+                    <p>
+                        <div  class="form-control2"><input type="password" name="senha" required=""><label><span style="transition-delay:0ms">s</span><span style="transition-delay:50ms">e</span><span style="transition-delay:100ms">n</span><span style="transition-delay:150ms">h</span><span style="transition-delay:200ms">a</span>
+                        </label>
+                        </div>
+                        
+                        
+                        
+                            <div class="error" id="erro-aviso">Senha Obrigatória</div>
+                        <div class="error" id="erro-aviso">Senha errado</div>
+                    </p>
+                     <p>
+                        <!-- inicio do botao login--> 
+                        <a href="login.html"></a><button type="submit" class="cta"><span class="hover-underline-animation">Entrar</span><svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                              <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                            </svg>
+                          </button> <!-- fim do botao login-->  
+
+                          <!-- inicio do botao registro-->                       
+                          <a href="registro_novo_user.html"><button class="icon-btn add-btn">
+                            <div class="add-icon"></div>
+                            <div class="btn-txt">Cadastrar</div>
+                        </button>           
+                        <!-- fim do botao registro--> 
+                    
+                    </p>
+                </form>
+                 <script type ="text/javascript" src="{% static 'js/script.js' %}"></script>
+            </section>
+        </main>
+        <footer>
+            <a target="_blank" class="footer-c" href="www.google.com">Google</a><p>&copy; Coders todos os direitos reservados</p></a>
+        </footer>
+           
+
+    </body>
+</html>

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block 'import' %}
+<link rel="stylesheet" href="{% static 'css/css_cadastro.css' %}" />
+{% endblock %}
+
+{% block 'conteudo' %}
+
+
+{% if status == '1'%}
+<div class="alert alert-danger" role="alert">
+  Digite um email válido
+</div>
+{% endif %}
+
+{% if status == '2'%}
+<div class="alert alert-danger" role="alert">
+  A senha deve ter pelo menos 8 caracteres
+</div>
+{% endif %}
+
+{% if status == '3'%}
+<div class="alert alert-danger" role="alert">
+  Usuário já existe no sistema
+</div>
+{% endif %}
+
+{% if status == '4'%}
+<div class="alert alert-danger" role="alert">
+  Email já registrado em nosso banco de dados
+</div>
+{% endif %}
+<div class="row">
+
+  <div class="col-md-3">
+
+  </div>
+
+  <div class="col-md">
+    <h1>Cadastre-se</h1>
+
+
+
+    {% if status == '0'%}
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+        <use xlink:href="#exclamation-triangle-fill" />
+      </svg>
+      <div>
+        An example danger alert with an icon
+      </div>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'valida_cadastro' %}">
+      {% csrf_token %}
+
+      <div class="global_container">
+        <br>
+
+        <label>Nome</label>
+
+
+        <input name="fname" class="form-control" type="text" placeholder="Nome..." autocomplete="off">
+        <br>
+       
+        <label>Sobrenome</label>
+
+
+        <input name="lname" class="form-control" type="text" placeholder="Sobrenome..." autocomplete="off">
+        <br>
+
+
+
+        <label>Usuário</label>
+
+
+        <input name="usuario" class="form-control" type="text" placeholder="Usuário..." autocomplete="off">
+        <br>
+
+
+        <label>Email</label>
+        <input name="email" class="form-control" type="text" a placeholder="Email..." autocomplete="off">
+        <br>
+
+
+
+
+
+
+
+        <label>Senha</label>
+        <input name="senha" class="form-control" type="password" placeholder="Senha..." autocomplete="off">
+        <br>
+        <select name="escolha" class="form-select" aria-label="Default select example">
+          <option name="0" disable selected>Nível de Permissão</option>
+          <option name ="um" value="1">Avançado</option>
+          <option name ="dois" value="2">Médio</option>
+          <option name ="tres" value="3">Normal</option>
+        </select>
+
+        <br>
+        <br>
+        <input class="btn btn-info btn-lg" type="submit" value="Enviar">
+        <a href="{% url 'login' %}" class="btn btn-warning btn-lg">Login</a>
+
+
+    </form>
+  </div>
+
+  <div class="col-md-3">
+
+  </div>
+
+ 
+</div>
+
+</div>
+{% endblock %}
+
+{% block 'java' %}
+<script type="text/javascript" src="{% static 'js/popupregister.js' %}"></script>
+{% endblock %}
+
+
