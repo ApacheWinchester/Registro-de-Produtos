@@ -22,9 +22,6 @@ def cadastro(request):
     return render(request, 'cadastro.html', {'status': status})
 
 
-
-
-
 def valida_cadastro(request):
     if request.method == "POST":
         fname = request.POST.get('fname')
@@ -33,12 +30,10 @@ def valida_cadastro(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')        
         esco = request.POST.get('escolha')
-        #avan = request.POST.get('avanca')
-        #medi =request.POST.get('medio')
-        #norm =request.POST.get('normal')
+        avan = request.POST.get('avanca')
+        medi =request.POST.get('medio')
+        norm =request.POST.get('normal')
         
-        
-
         usuario = User.objects.filter(username= user)
         
         if len(fname.strip()) == 0:
@@ -68,7 +63,7 @@ def valida_cadastro(request):
             return redirect('/auth/cadastro/?status=4')
 
         
-        if esco == 1:
+        if esco == avan:
             usuario = User.objects.create_user(user, email, senha)
             usuario.first_name = fname
             usuario.last_name =lname
@@ -78,7 +73,7 @@ def valida_cadastro(request):
 
 
 
-        if esco == 2:
+        if esco == medi:
             usuario = User.objects.create_user(user, email, senha)
             usuario.first_name = fname
             usuario.last_name =lname
@@ -88,7 +83,7 @@ def valida_cadastro(request):
             
 
 
-        if esco == 3:
+        if esco == norm:
             usuario = User.objects.create_user(user, email, senha)
             usuario.first_name = fname
             usuario.last_name =lname
