@@ -3,16 +3,15 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import EmailMessage, send_mail
-#from geeksforgeeks import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-#from django.utils.encoding import force_bytes, force_text
 from django.contrib.auth import authenticate, login, logout
-#from . tokens import generate_token
 from rolepermissions.roles import assign_role
 from rolepermissions.decorators import has_role_decorator, has_permission_decorator # permite acesso apenas a determinado usuario
-from django.core.mail import EmailMessage
+from models import usuarios_sistema
+
+
 
 
 # cadastro de usuarios
