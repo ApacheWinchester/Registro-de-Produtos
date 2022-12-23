@@ -12,4 +12,4 @@ class usuarios_sistema(models.Model):
    ativo = models.BooleanField(default=False)
 
    def __str__(self) -> str:
-      return self.usuario
+      return self.user
